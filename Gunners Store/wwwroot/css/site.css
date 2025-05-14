@@ -1,4 +1,4 @@
-html {
+﻿html {
   font-size: 14px;
 }
 
@@ -18,5 +18,172 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    min-height: 100vh;  
+}
+
+:root {
+    --arsenal-red: #EF0107;
+    --arsenal-gold: #FFC72C;
+    --arsenal-navy: #121A33;
+    --arsenal-white: #FFFFFF;
+    --arsenal-gray: #F5F5F5;
+}
+
+.navbar {
+    background-color: var(--arsenal-navy);
+    padding: 0.5rem 2rem;
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--arsenal-red);
+}
+
+.logo-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--arsenal-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--arsenal-red);
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: var(--arsenal-white); 
+    font-weight: 600;
+}
+
+    .navbar-nav .nav-item .nav-link:hover {
+        color: var(--arsenal-gold); 
+    }
+
+.navbar-toggler {
+    background-color: var(--arsenal-red); 
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-color: white;
+}
+
+
+.btn {
+    width: 170px ;
+}
+
+.btn:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+
+.btn-outline-primary {
+    border-color: var(--arsenal-red);
+    color: var(--arsenal-red);
+}
+
+    .btn-outline-primary:hover {
+        background-color: var(--arsenal-red);
+        color: white;
+    }
+
+.btn-outline-secondary {
+    border-color: var(--arsenal-navy);
+    color: var(--arsenal-navy);
+}
+
+    .btn-outline-secondary:hover {
+        background-color: var(--arsenal-navy);
+        color: white;
+    }
+.footer {
+    background-color: var(--arsenal-navy);
+    color: white;
+    padding: .8rem 0;
+    text-align: center;
+    top:0;
+    left:0;
+    
+}
+
+.copyright-text {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.made-by {
+    color: var(--arsenal-gold);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.arsenal-accent {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.accent-line {
+    height: 4px;
+    width: 60px;
+}
+
+.accent-red {
+    background-color: var(--arsenal-red);
+}
+
+.accent-gold {
+    background-color: var(--arsenal-gold);
+    margin: 0 8px;
+}
+
+/* Admin Dropdown Styling */
+.dropdown-menu {
+    background-color: #fff;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.dropdown-item {
+    color: #333;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    .dropdown-item:hover {
+        background-color: #dc3545;
+        color: #fff;
+    }
+
+.nav-link.dropdown-toggle {
+    font-weight: 500;
+    position: relative;
+}
+
+    .nav-link.dropdown-toggle::after {
+        border-top-color: #dc3545; 
+    }
+
+/* Optional: Hover effect on Admin link */
+.nav-item.dropdown:hover .nav-link {
+    color: #dc3545;
 }

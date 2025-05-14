@@ -1,0 +1,143 @@
+﻿
+:root {
+    --arsenal-red: #EF0107;
+    --arsenal-navy: #121A33;
+    --arsenal-gold: #FFC72C;
+    --arsenal-white: #FFFFFF;
+}
+
+body {
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+}
+
+.form-side {
+    width: 100%;
+    padding: 2rem;
+}
+
+.image-side {
+    display: none;
+    background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=2070');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;  
+}
+
+@media (min-width: 992px) {
+    .form-side {
+        width: 50%;
+    }
+
+    .image-side {
+        display: block;
+        width: 50%;
+    }
+}
+
+.brand-logo {
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--arsenal-red);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.image-overlay {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, rgba(18, 26, 51, 0.7), rgba(239, 1, 7, 0.3));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+}
+
+.brand-icon {
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--arsenal-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.875rem;
+    margin-bottom: 1.5rem;
+}
+
+.brand-separator {
+    width: 4rem;
+    height: 0.25rem;
+    background-color: var(--arsenal-gold);
+    margin: 1.5rem 0;
+}
+
+.form-container {
+    max-width: 28rem;
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 2rem;
+}
+
+.btn-arsenal {
+    background-color: var(--arsenal-red);
+    color: white;
+    border: none;
+}
+
+    .btn-arsenal:hover {
+        background-color: #d00106;
+        color: white;
+    }
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #6c757d;
+    margin: 1.5rem 0;
+}
+
+    .separator::before,
+    .separator::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .separator span {
+        padding: 0 0.75rem;
+    }
+
+.social-btn {
+    border: 1px solid #dee2e6;
+    background-color: white;
+}
+
+    .social-btn:hover {
+        background-color: #f8f9fa;
+    }
+
+.fb-icon {
+    color: #3b5998;
+}
+
+.text-arsenal {
+    color: var(--arsenal-red);
+}
+

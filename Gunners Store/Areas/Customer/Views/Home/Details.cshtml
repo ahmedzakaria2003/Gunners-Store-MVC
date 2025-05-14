@@ -1,0 +1,94 @@
+﻿@model shoppinCart
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<link rel="stylesheet" href="~/css/ProductDetails.css" />
+
+<!-- Product Details -->
+<div class="container mt-3  min-vh-100">
+    <div class="row">
+        <div class="col-12">
+            <a asp-action="Index" class="btn btn-back px-4 mt-5">
+                <i class="bi bi-arrow-left"></i> Back to Home
+            </a>
+        </div>
+    </div>
+
+    <div class="product-container">
+
+        <form asp-action="AddToCart" method="post">
+            <input type="hidden" name="productId" value="@Model.Product.ProductID" />
+
+            <div class="row">
+                <!-- Product Image -->
+                <div class="col-md-5 product-image-container">
+                    <img src="@Model.Product.ImgUrl"  class="product-image">
+                </div>
+
+                <!-- Product Info -->
+                <div class="col-md-7">
+                    <span class="product-category">@Model.Product.Category.Name</span>
+
+                    <div class="mb-3">
+                        <span class="product-details-label">Product ID:</span>
+                        <span>@Model.Product.ProductID</span>
+                    </div>
+
+                    <div class="mb-4">
+                        <span class="product-details-label">List Price:</span>
+                        <span class="product-original-price ms-2">@Model.Product.ListPrice.ToString("C", new System.Globalization.CultureInfo("en-US"))</span>
+                        <div>
+                            <span class="product-price">@Model.Product.Price100.ToString("C", new System.Globalization.CultureInfo("en-US"))</span>
+                        </div>
+                    </div>
+
+                    <!-- Quantity Pricing Table -->
+                    <h5>Quantity Pricing</h5>
+                    <table class="quantity-table">
+                        <thead>
+                            <tr>
+                                <th>Quantity</th>
+                                <th>1-50</th>
+                                <th>51-100</th>
+                                <th>100+</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="product-details-label">Price</td>
+                                <td class="highlight">@Model.Product.Price.ToString("C", new System.Globalization.CultureInfo("en-US"))</td>
+                                <td>@Model.Product.Price50.ToString("C", new System.Globalization.CultureInfo("en-US"))</td>
+                                <td>@Model.Product.Price100.ToString("C", new System.Globalization.CultureInfo("en-US"))</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Product Description -->
+                    <h5>Description</h5>
+                    <p class="product-description">
+                        @Model.Product.Description
+                    </p>
+
+                    <!-- Add to Cart Section -->
+                    <div class="row g-2 align-items-center">
+                        <div class="col-auto">
+                            <label for="quantity" class="product-details-label me-2">Count</label>
+                        </div>
+                        <div class="col-auto">
+                            <input asp-for="Count"     type="number" id="quantity" class="quantity-input" value="1" min="1">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <button class="btn btn-cart w-100">
+                                ADD TO CART
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form> 
+
+    </div>
+</div>

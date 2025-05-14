@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+}
+
+<link href="~/css/AdminDashboard.css" rel="stylesheet" />
+
+<div class="container-fluid mt-5">
+    <div class="row pt-4 pb-3 justify-content-between align-items-center">
+        <div class="col-6">
+            <h2>User List</h2>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table id="tblData" class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script src="~/js/user.js"></script>
+}

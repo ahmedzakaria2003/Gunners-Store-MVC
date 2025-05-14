@@ -1,0 +1,110 @@
+﻿ @model ShoppingCartVM 
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="~/css/cart.css" />
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+
+<!-- Cart Content -->
+<div class="container cart-container  min-vh-100">
+    <!-- Back link -->
+    <a asp-action="Index" asp-area="Customer" asp-controller="Home" class="continue-shopping mb-4 d-block">
+        <i class="fas fa-arrow-left me-2"></i>
+        Continue Shopping
+    </a>
+
+    <h1 class="cart-title">Shopping Cart</h1>
+    
+    <div class="row g-4">
+        <!-- داخل ال foreach في View -->
+        @foreach (var item in Model.shoppingCartList)
+        {
+            <div class="col-lg-8">
+                <div class="cart-item p-3">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 col-4 mb-3 mb-md-0">
+                            <img src="@item.Product.ImgUrl" alt="Arsenal Home Kit" class="cart-item-image img-fluid">
+                        </div>
+                        <div class="col-md-4 col-8 mb-3 mb-md-0">
+                            <h5 class="item-title">@item.Product.ProductName</h5>
+                            <p class="item-description">@item.Product.Description</p>
+                            <p class="item-description">@Html.Raw(item.Product.Brand)</p>
+                        </div>
+                        <div class="col-md-2 col-4">
+                            <p class="item-price">@item.Price.ToString("C", new System.Globalization.CultureInfo("en-US"))</p>
+                            <span> @item.Count </span>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="quantity-control">
+                                 <button class="quantity-btn">
+                                <a asp-action="Minus" asp-controller="Cart" asp-route-id="@item.Id" asp-area="Customer"> <i class="fas fa-minus text-dark"></i></a>
+                                </button>
+                                <input type="text" class="quantity-input" value="@item.Count" readonly>
+                                <button class="quantity-btn">
+                                    <a asp-action="Plus" asp-controller="Cart" asp-route-id="@item.Id"> <i class="fas fa-plus text-dark" asp-area="Customer"></i></a>
+                               </button>
+                            </div>
+                        </div>
+                        <div class="col-md-1 col-2">
+                            <button class="quantity-btn">
+                            <a asp-action="Remove" asp-controller="Cart" asp-route-id="@item.Id" asp-area="Customer"> <i class="fas fa-trash text-danger"></i></a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+        <!-- Order Summary -->
+        <div class="col-lg-4">
+            <div class="cart-summary">
+                <h4 class="summary-title">Order Summary</h4>
+
+                
+
+                <div class="summary-row summary-total">
+                    <span>Total</span>
+                    <span>@Model.OrderTotal.ToString("C", new System.Globalization.CultureInfo("en-US"))</span>
+                </div>
+
+                <form asp-action="Summary" method="post">
+                    <button class="btn btn-danger w-100 mt-3" type="submit">
+                        Proceed to Checkout
+                    </button>
+                </form>
+
+                <div class="d-block d-lg-none mt-4">
+                    <button class="btn summary-btn"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#summaryCollapse">
+                        Show Order Summary
+                    </button>
+
+                    <div class="collapse mt-3" id="summaryCollapse">
+                      
+
+                        <div class="summary-row summary-total">
+                            <span>Total</span>
+                    <span>@Model.OrderTotal.ToString("C", new System.Globalization.CultureInfo("en-US"))</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+</div>
+
+       
+     

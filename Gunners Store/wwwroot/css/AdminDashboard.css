@@ -1,0 +1,324 @@
+﻿<style >
+:root {
+  
+    --gradient-bg: linear-gradient(135deg, #ffffff, #f8f9fa);
+    --arsenal-red: #EF0107;
+    --arsenal-gold: #FFC72C;
+    --arsenal-navy: #121A33;
+    --arsenal-white: #FFFFFF;
+    --arsenal-gray: #F5F5F5;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--gradient-bg);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Navbar Styles */
+.navbar {
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    z-index: 1030;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--gunner-red);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+    .logo-icon:hover {
+        transform: rotate(360deg);
+    }
+
+.logo-text {
+    font-weight: 600;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover .logo-text {
+    color: var(--gunner-red);
+}
+
+/* Sidebar (Offcanvas) Styles */
+.offcanvas {
+    background: linear-gradient(145deg, #ffffff, #f0f2f5);
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+    width: 260px !important;
+}
+
+.offcanvas-header {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    background: rgba(239, 1, 7, 0.05);
+}
+
+.offcanvas-title {
+    font-weight: 600;
+    color: var(--gunner-red);
+}
+
+.offcanvas-body {
+    padding: 0.5rem 1rem;
+}
+
+.sidebar-menu-item small {
+    color: #6c757d;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    padding-left: 0.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.offcanvas .nav-link {
+    padding: 0.75rem 1rem;
+    color: #333;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    position: relative;
+    overflow: hidden;
+}
+
+    .offcanvas .nav-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(239, 1, 7, 0.1);
+        transition: all 0.3s ease;
+        z-index: 0;
+    }
+
+    .offcanvas .nav-link:hover::before,
+    .offcanvas .nav-link.active::before {
+        left: 0;
+    }
+
+    .offcanvas .nav-link:hover,
+    .offcanvas .nav-link.active {
+        color: var(--gunner-red);
+        font-weight: 500;
+    }
+
+    .offcanvas .nav-link i {
+        transition: transform 0.3s ease;
+    }
+
+    .offcanvas .nav-link:hover i {
+        transform: scale(1.2);
+    }
+
+/* Main Content Styles */
+.main-content {
+    padding: 2rem;
+    padding-top: calc(56px + 2rem);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Center the rendered content */
+main[role="main"] {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+    /* Ensure DataTables or dynamic content fits */
+    main[role="main"] .dataTables_wrapper {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+/* Responsive Behaviors */
+@media (max-width: 576px) {
+    .main-content {
+        padding: 1rem;
+        padding-top: calc(56px + 1rem);
+    }
+
+    main[role="main"] {
+        max-width: 100%;
+        padding: 0.5rem;
+        border-radius: 0;
+    }
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gunner-red);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    z-index: 1040;
+    cursor: pointer;
+}
+
+    .sidebar-toggle:hover {
+        transform: scale(1.1);
+    }
+
+/* Hide toggle button on desktop */
+@media (min-width: 992px) {
+    .sidebar-toggle {
+        display: none;
+    }
+}
+
+.dashboard-content {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.custom-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    gap:16px;
+
+}
+
+    .custom-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-card .card-body {
+        padding: 1.5rem;
+    }
+
+    .custom-card .card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .custom-card .card-text {
+        margin-bottom: 1rem;
+    }
+
+    .custom-card .btn {
+        border-radius: 20px;
+        padding: 0.25rem 1rem;
+    }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .custom-card .card-body {
+        padding: 1rem;
+    }
+
+    .custom-card .card-title {
+        font-size: 1rem;
+    }
+
+    .custom-card .card-text {
+        font-size: 1.5rem;
+    }
+
+    .custom-card .btn {
+        padding: 0.2rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .row.g-3 > [class*="col-"] {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .card-header h5 {
+        font-size: 1.1rem;
+    }
+
+    .card-body {
+        padding: 0.8rem;
+    }
+
+    canvas {
+        height: 250px !important;
+    }
+}
+.footer {
+    background-color: #121A33;
+    color:white;
+    padding: .8rem 0;
+    text-align: center;
+    top: 0;
+    left: 0;
+}
+
+.copyright-text {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.made-by {
+    color: #FFC72C;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.arsenal-accent {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.accent-line {
+    height: 4px;
+    width: 60px;
+}
+
+.accent-red {
+    background-color: #EF0107;
+}
+
+.accent-gold {
+    background-color: #FFC72C;
+    margin: 0 8px;
+}

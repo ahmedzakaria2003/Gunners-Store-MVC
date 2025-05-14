@@ -1,0 +1,132 @@
+﻿@page
+@using Gunner.Utility
+@model RegisterModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+<link rel="stylesheet" href="~/css/Register.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<div class="auth-container">
+    <!-- Left side - Form -->
+    <div class="form-side d-flex flex-column">
+        <div class="form-container flex-grow-1 d-flex flex-column justify-content-center">
+            <div class="mb-4">
+                @if (User.IsInRole("Admin"))
+                {
+                    <h1 class="fw-bold fs-2">Register - Admin Portal</h1>
+
+
+                }
+                else
+                {
+                    <h1 class="fw-bold fs-2">Create an account</h1>
+                }
+                <p class="text-secondary">Join Gunner Store to get access to exclusive Arsenal merchandise</p>
+            </div>
+
+            <form id="registerSubmit" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Email" class="form-control" placeholder="name@example.com" />
+                    <label asp-for="Input.Email" class="form-label">Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating mb-3"> 
+                    <input asp-for="Input.Name" class="form-control"  placeholder="John Smith" /> 
+                    <label asp-for="Input.Name" class="form-label">Full Name</label> 
+                    <span asp-validation-for="Input.Name" class="text-danger"></span> 
+                </div> 
+
+
+
+
+                <div class="form-floating mb-3"> 
+                    <input asp-for="Input.StreetAddress" class="form-control"  placeholder="1234 Main St" /> 
+                    <label asp-for="Input.StreetAddress" class="form-label">Street Address</label> 
+                    <span asp-validation-for="Input.StreetAddress" class="text-danger"></span> 
+                </div> 
+
+                <div class="form-floating mb-3"> 
+                    <input asp-for="Input.City" class="form-control"   placeholder="City" /> 
+                    <label asp-for="Input.City" class="form-label">City</label> 
+                    <span asp-validation-for="Input.City" class="text-danger"></span> 
+                </div>
+
+                <div class="form-floating mb-3"> 
+                    <input asp-for="Input.State" class="form-control"   placeholder="State" /> 
+                    <label asp-for="Input.State" class="form-label">State</label> 
+                    <span asp-validation-for="Input.State" class="text-danger"></span> 
+                </div> 
+
+                <div class="form-floating mb-3"> 
+                    <input asp-for="Input.PostalCode" class="form-control"   placeholder="Postal Code" /> 
+                    <label asp-for="Input.PostalCode" class="form-label">Postal Code</label> 
+                    <span asp-validation-for="Input.PostalCode" class="text-danger"></span> 
+                </div> 
+
+
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.Password" class="form-label">Password</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.ConfirmPassword" class="form-label">ConfirmPassword</label>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                 @if (User.IsInRole(SD.Role_Admin)) 
+                 { 
+                    <div class="form-floating mb-3">
+                        <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-control">
+                            <option value="">Select Role</option>
+                        </select>
+                        <label asp-for="Input.Role" class="form-label">Role</label>
+                        <span asp-validation-for="Input.Role" class="text-danger"></span>
+                    </div>
+                 } 
+
+                <div>
+                    <button id="registerSubmit" type="submit" class="btn btn-danger w-100 py-2">Register</button>
+                </div>
+
+               
+            </form>
+
+            <div class="mt-4 text-center">
+                <p class="text-secondary">
+                    Don you have an account yet?
+                    <a asp-page="/Account/Login" class="text-arsenal text-decoration-none fw-medium">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right side - Image -->
+    <div class="image-side">
+        <div class="image-overlay">
+            <div class="brand-icon">
+                <span>G</span>
+            </div>
+            <h2 class="fs-1 fw-bold">Gunner Store</h2>
+            <p class="fs-5">The official store for Arsenal fans</p>
+            <div class="brand-separator"></div>
+            <p>Get the latest Arsenal merchandise and show your support for the team.</p>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+
+ }

@@ -1,0 +1,105 @@
+﻿:root {
+    --arsenal-red: #EF0107;
+    --arsenal-navy: #121A33;
+    --arsenal-gold: #FFC72C;
+    --arsenal-white: #FFFFFF;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.confirmation-header {
+    background: linear-gradient(90deg, var(--arsenal-red), var(--arsenal-navy));
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+    .confirmation-header .container {
+        position: relative;
+        z-index: 1;
+    }
+
+.confirmation-icon {
+    font-size: 3rem;
+    color: var(--arsenal-gold);
+    margin-bottom: 1rem;
+}
+
+.confirmation-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem 3rem;
+    min-height: 100vh;
+}
+
+.arsenal-pattern {
+    background-color: var(--arsenal-navy);
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23EF0107' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.feedback-prompt {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.stars-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.star-btn {
+    background: none;
+    border: none;
+    color: var(--arsenal-gold);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 0;
+}
+
+    .star-btn:hover {
+        transform: scale(1.2);
+    }
+
+.thank-you-message {
+    display: none;
+    color: var(--arsenal-gold);
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+@media (max-width: 767px) {
+    .confirmation-header {
+        padding: 1.5rem 0;
+    }
+
+    .confirmation-icon {
+        font-size: 2.5rem;
+    }
+
+    .arsenal-pattern {
+        padding: 1.5rem;
+    }
+
+    .feedback-prompt {
+        font-size: 1.1rem;
+    }
+
+    .star-btn {
+        font-size: 1.25rem;
+    }
+}
