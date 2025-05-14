@@ -27,10 +27,7 @@ Personalized Product Recommendations: Enhances user experience with tailored pro
 
 Scalable Architecture: Designed with an N-Tier structure and Unit of Work pattern for maintainability and performance.
 
-Tech Stack
-
-
-
+Tech Stack:
 
 
 Backend: .NET C# (ASP.NET Core MVC)
