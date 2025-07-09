@@ -19,9 +19,6 @@ This project is designed to provide a seamless shopping experience for Arsenal f
 - **Real-Time Order Tracking**  
   Enables users to track their orders directly from their dashboard.
 
-- **Personalized Recommendations**  
-  Suggests related products to improve user experience and encourage engagement.
-
 - **Scalable Architecture**  
   Structured with N-Tier layering and the **Unit of Work** pattern to ensure clean separation of concerns and easy maintainability.
 
